@@ -11,9 +11,9 @@ class NavigationMap(private val instructionsCallback: (String, Double?) -> Unit)
     class Signal(var strength: Int, var timestamp: Long, var signalFilt: Double, var inRangeCount: Int = 0)
 
     val nodes = arrayListOf(
-            Node(0.0, 0.0, arrayListOf(Connection(1, 90.0))),
-            Node(0.0, 3.0, arrayListOf(Connection(0, -90.0), Connection(2, 90.0))),
-            Node(0.0, 6.0, arrayListOf(Connection(1, -90.0)))
+            Node(0.0, 0.0, arrayListOf(Connection(1, 0.0))),
+            Node(0.0, 3.0, arrayListOf(Connection(0, 0.0), Connection(2, -90.0))),
+            Node(3.0, 0.0, arrayListOf(Connection(1, 90.0)))
     )
 
     class Node(val x: Double, val y: Double, val connections: ArrayList<Connection>, var lastSignal: Signal? = null)

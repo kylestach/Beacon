@@ -2,7 +2,7 @@ package com.hackathon.fellas.homedepotapp
 
 class SharedData {
     companion object {
-        val tools: Map<String, BluetoothNode> = mapOf<String, BluetoothNode>(
+        val tools: Map<String, BluetoothNode> = mapOf(
                 Pair("Fiberglass Claw Hammer", BluetoothNode.NODE1),
                 Pair("Steel Drilling Hammer", BluetoothNode.NODE1),
                 Pair("Mallet Hammer", BluetoothNode.NODE1),
@@ -16,5 +16,4 @@ class SharedData {
                 Pair("Deck Screws", BluetoothNode.NODE4)
         )
     }
-
 }

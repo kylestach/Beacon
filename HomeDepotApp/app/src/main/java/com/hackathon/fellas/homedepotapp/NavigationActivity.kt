@@ -22,10 +22,10 @@ import java.util.*
 class NavigationActivity : AppCompatActivity(), SensorEventListener, TextToSpeech.OnInitListener {
     override fun onInit(p0: Int) {}
 
-    var stepsAtChange = 0
-    var steps = 0
+    private var stepsAtChange = 0
+    private var steps = 0
 
-    lateinit var textToSpeech: TextToSpeech
+    private lateinit var textToSpeech: TextToSpeech
 
     override fun onSensorChanged(event: SensorEvent?) {
         if (event != null) {
@@ -58,7 +58,7 @@ class NavigationActivity : AppCompatActivity(), SensorEventListener, TextToSpeec
         textToSpeech = TextToSpeech(this, this)
         setContentView(R.layout.activity_navigation)
 
-        textToSpeech.setLanguage(Locale.CHINA)
+        textToSpeech.language = Locale.US
 
         navigator.startNavigation()
         val stepCounter = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER)
@@ -80,18 +80,21 @@ class NavigationActivity : AppCompatActivity(), SensorEventListener, TextToSpeec
     private var navigator = NavigationMap { inst, degrees ->
         instructions.text = inst
         if (degrees != null) {
-            if (abs(degrees) <= 15) {
-                arrowImageView?.setImageResource(R.drawable.arrow_forward)
-            } else if (degrees > 0) {
-                arrowImageView?.setImageResource(R.drawable.arrow_left)
-                stepsAtChange = steps
-                direction = Direction.LEFT
-            } else if (degrees < 0) {
-                arrowImageView?.setImageResource(R.drawable.arrow_right)
-                stepsAtChange = steps
-                direction = Direction.RIGHT
+            when {
+                abs(degrees) <= 15 -> arrowImageView?.setImageResource(R.drawable.arrow_forward)
+                degrees > 0 -> {
+                    arrowImageView?.setImageResource(R.drawable.arrow_left)
+                    stepsAtChange = steps
+                    direction = Direction.LEFT
+                }
+                degrees < 0 -> {
+                    arrowImageView?.setImageResource(R.drawable.arrow_right)
+                    stepsAtChange = steps
+                    direction = Direction.RIGHT
+                }
             }
         }
+        @Suppress("DEPRECATION")
         textToSpeech.speak(inst, TextToSpeech.QUEUE_ADD, null)
     }
 
@@ -99,10 +102,11 @@ class NavigationActivity : AppCompatActivity(), SensorEventListener, TextToSpeec
     private fun startBluetoothScan() {
         bluetoothAdapter = BluetoothAdapter.getDefaultAdapter()
 
-        bluetoothAdapter.startLeScan { device, signalStrength, scanRecord ->
+        @Suppress("DEPRECATION")
+        bluetoothAdapter.startLeScan { device, signalStrength, _ ->
             if (device.name != null && device.name.contains("Beacon")) {
                 val beaconId = Character.getNumericValue(
-                        device.name.get(device.name.indexOf("Beacon ") + "Beacon ".length)
+                        device.name[device.name.indexOf("Beacon ") + "Beacon ".length]
                 ) - 1
                 navigator.updateSignalReading(beaconId, signalStrength)
             }
