@@ -30,10 +30,10 @@ class MyListActivity : AppCompatActivity() {
 
         myList.adapter = toolAdapter
 
-        myList.setOnItemClickListener { _, _, position, _ ->
+        myList.setOnItemClickListener{ _, _, position, _ ->
             val itemKey: String = myList.getItemAtPosition(position) as String
-            val intent = Intent(this, NavigationActivity::class.java).apply {
-                putExtra("Node", SharedData.tools[itemKey])
+            val intent: Intent = Intent(this, NavigationActivity::class.java).apply {
+                putExtra(SharedData.CHOSEN_NODE, SharedData.tools[itemKey])
             }
             startActivity(intent)
         }

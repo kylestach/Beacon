@@ -30,7 +30,7 @@ class SearchActivity : AppCompatActivity(), TextWatcher {
         searchResults.setOnItemClickListener{ _, _, position, _ ->
             val itemKey: String = searchResults.getItemAtPosition(position) as String
             val intent: Intent = Intent(this, NavigationActivity::class.java).apply {
-                putExtra("Node", SharedData.tools[itemKey])
+                putExtra(SharedData.CHOSEN_NODE, SharedData.tools[itemKey])
             }
             startActivity(intent)
         }

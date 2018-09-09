@@ -1,35 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:weightSum="3"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     tools:context=".MainActivity">
 
     <Button
         android:id="@+id/goToHelp"
-        android:onClick="goToHelp"
         android:layout_width="match_parent"
-        android:layout_height="170dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:text="Help menu" />
+
+        android:layout_weight="1"
+        android:layout_height="fill_parent"
+        android:background="#FF6600"
+        android:fontFamily="sans-serif"
+        android:onClick="goToHelp"
+        android:text="Help"
+        android:textColor="@android:color/background_light"
+        android:textSize="45sp" />
 
     <Button
         android:id="@+id/goToList"
-        android:onClick="goToMyList"
         android:layout_width="match_parent"
-        android:layout_height="170dp"
-        android:layout_alignParentStart="true"
-        android:layout_below="@id/goToHelp"
-        android:text="List menu" />
+        android:layout_weight="1"
+        android:layout_height="fill_parent"
+        android:background="#F3B700"
+        android:onClick="goToMyList"
+        android:text="My Items"
+        android:textColor="@android:color/background_light"
+        android:textSize="45sp" />
 
     <Button
         android:id="@+id/goToSearch"
         android:layout_width="match_parent"
-        android:layout_height="170dp"
-        android:layout_alignParentBottom="true"
+        android:layout_weight="1"
+        android:layout_height="fill_parent"
+        android:background="#32021F"
         android:onClick="goToSearch"
-        android:layout_alignParentStart="true"
-        android:layout_below="@id/goToList"
-        android:text="Search Menu" />
-</RelativeLayout>
+        android:text="Search"
+        android:textColor="@android:color/background_light"
+        android:textSize="45sp" />
+</LinearLayout>

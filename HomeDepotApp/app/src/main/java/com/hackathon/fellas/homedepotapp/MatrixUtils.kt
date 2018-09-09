@@ -4,6 +4,7 @@ import koma.extensions.set
 import koma.matrix.Matrix
 import koma.matrix.ejml.EJMLMatrixFactory
 
+@Suppress("unused")
 class MatrixUtils {
     companion object {
         val factory = EJMLMatrixFactory()

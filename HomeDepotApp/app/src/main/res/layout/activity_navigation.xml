@@ -1,25 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    tools:context=".NavigationActivity">
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#FF6600"
+    android:weightSum="4"
+    android:orientation="vertical"
+    tools:context=".NavigationActivity"
+    android:paddingBottom="35dp">
 
-    <ImageView
-        android:id="@+id/arrowImageView"
-        android:layout_width="wrap_content"
-        android:layout_height="368dp"
-        android:layout_centerInParent="true"
-        android:contentDescription="@string/imageContent"
-        app:srcCompat="@drawable/arrow_forward" />
+    <!--<ImageView-->
+        <!--android:id="@+id/arrowImageView"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="264dp"-->
+        <!--android:layout_centerInParent="true"-->
+        <!--android:contentDescription="@string/imageContent"-->
+        <!--android:src="@drawable/arrow_forward" />-->
+    <TextView
+        android:id="@+id/arrowView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
+        android:gravity="center"
+        android:text="\u2b06\ufe0e"
+        android:textColor="@android:color/background_light"
+        android:textSize="230sp" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        android:layout_below="@id/arrowImageView"
+        android:id="@+id/instructions"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_weight="1"
+        android:text=""
+        android:layout_below="@id/arrowView"
         android:layout_centerHorizontal="true"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/instructions" />
-</RelativeLayout>
+        android:textColor="@color/orange"
+        android:background="@android:color/background_light"
+        android:textSize="30sp"
+        android:gravity="center" />
+</LinearLayout>

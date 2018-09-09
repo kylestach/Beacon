@@ -3,8 +3,7 @@
     package="com.hackathon.fellas.homedepotapp">
 
     <uses-permission android:name="android.permission.BLUETOOTH" />
-    <uses-permission android:name="android.permission.BLUETOOTH" />
-
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
 
     <application
@@ -35,12 +34,27 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.hackathon.fellas.homedepotapp.MainActivity" />
         </activity>
-        <activity android:name=".HelpActivity" />
-        <activity android:name=".NavigationActivity" />
+        <activity
+            android:name=".HelpActivity"
+            android:parentActivityName=".MainActivity">>
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.hackathon.fellas.homedepotapp.MainActivity" />
+        </activity>
+        <activity
+            android:name=".NavigationActivity"
+            android:parentActivityName=".SearchActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.hackathon.fellas.homedepotapp.MainActivity" />
+        </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
-    <uses-permission android:name="android.permission.BLUETOOTH" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
 
 </manifest>

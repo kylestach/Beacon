@@ -1,21 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="30dp"
+    android:background="#F3B700"
+    android:orientation="vertical"
     android:paddingLeft="20dp"
-    android:paddingRight="20dp">
+    android:paddingRight="20dp"
+    android:paddingTop="30dp">
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
         android:gravity="center"
         android:text="@string/my_list_underlined"
-        android:textSize="30sp"
-        android:layout_marginBottom="20dp"
-        />
+        android:textSize="36sp" />
+
     <ListView
+        android:id="@+id/my_list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/my_list"></ListView>
+        android:layout_height="wrap_content">
+    </ListView>
 
 </LinearLayout>
